@@ -1,20 +1,18 @@
 import Image from "next/image";
-import styles from "./productcard.module.css"
+// import styles from "./productcard.module.css"
 
-export default function ProductCard () {
+export default function ProductCard ({hospitalName, imgSrc} :{hospitalName:string, imgSrc:string}) {
     return (
-        <div className={styles.card}>
-            <div className={styles.cardimg}>
-                <Image src={'/img/pfizer.jpeg'}
-                alt="Pfizer Picture"
+        <div className="w-1/4 h-80 rounded-lg shadow-lg">
+            <div className="w-full h-[70%] relative rounded-t-lg">
+                <Image src={imgSrc}
+                alt="Hospital Picture"
                 fill={true}
-                objectFit="cover" />
+                className="object-cover rounded-t-lg" />
             </div>
-            <div className={styles.cardtext}>
-                <h3>Pfizer</h3>
-                <p className={styles.text}>วัคซีนไฟเซอร์ (Pfizer Vaccine Covid) หรือวัคซีนป้องกันโควิด-19 จากบริษัทไฟเซอร์นั้น เป็นวัคซีนชนิด mRNA 
-                    ซึ่งมีประสิทธิผลป้องกันความรุนแรงของการติดเชื้อในทุกกลุ่มอายุได้ตั้งแต่ 92.9 - 95.1%</p>
-                </div>
+            <div className='w-full h-[30%] p-[5%] font-serif'>
+                {hospitalName} 
+            </div>
         </div>
     )
 }
