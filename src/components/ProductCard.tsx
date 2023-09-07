@@ -1,9 +1,10 @@
 import Image from "next/image";
+import InteractiveCard from "./InteractiveCard";
 // import styles from "./productcard.module.css"
 
 export default function ProductCard ({hospitalName, imgSrc} :{hospitalName:string, imgSrc:string}) {
     return (
-        <div className="w-1/4 h-80 rounded-lg shadow-lg">
+        <InteractiveCard>
             <div className="w-full h-[70%] relative rounded-t-lg">
                 <Image src={imgSrc}
                 alt="Hospital Picture"
@@ -13,6 +14,6 @@ export default function ProductCard ({hospitalName, imgSrc} :{hospitalName:strin
             <div className='w-full h-[30%] p-[5%] font-serif'>
                 {hospitalName} 
             </div>
-        </div>
+        </InteractiveCard>
     )
 }
