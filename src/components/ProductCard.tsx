@@ -1,8 +1,8 @@
 import Image from "next/image";
 import InteractiveCard from "./InteractiveCard";
-// import styles from "./productcard.module.css"
+import {Rating, Typography} from "@mui/material"
 
-export default function ProductCard ({hospitalName, imgSrc} :{hospitalName:string, imgSrc:string}) {
+export default function ProductCard ({hospitalName, imgSrc, score, onRating} :{hospitalName:string, imgSrc:string, score:number, onRating:Function}) {
     return (
         <InteractiveCard>
             <div className="w-full h-[70%] relative rounded-t-lg">
@@ -11,9 +11,13 @@ export default function ProductCard ({hospitalName, imgSrc} :{hospitalName:strin
                 fill={true}
                 className="object-cover rounded-t-lg" />
             </div>
-            <div className='w-full h-[30%] p-[5%] font-serif'>
+            <div className='w-full h-[10%] p-[5%] font-serif'>
                 {hospitalName} 
             </div>
+            <Rating className='w-full m-[5%]' value={score} 
+            onChange={(event, newValue) => {
+                onRating(hospitalName, newValue)
+              }} />
         </InteractiveCard>
     )
 }
