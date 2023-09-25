@@ -15,7 +15,9 @@ export default function ProductCard ({hospitalName, imgSrc, score, onRating} :{h
                 {hospitalName} 
             </div>
             <Rating className='w-full m-[5%]' value={score} 
+            onClick={(e)=>e.stopPropagation()}
             onChange={(event, newValue) => {
+                event.preventDefault()
                 onRating(hospitalName, newValue)
               }} />
         </InteractiveCard>
