@@ -2,7 +2,7 @@ import Image from "next/image";
 import InteractiveCard from "./InteractiveCard";
 import {Rating, Typography} from "@mui/material"
 
-export default function ProductCard ({hospitalName, imgSrc, score, onRating} :{hospitalName:string, imgSrc:string, score:number, onRating:Function}) {
+export default function ProductCard ({hospitalName, imgSrc, score, onRating} :{hospitalName:string, imgSrc:string, score?:number, onRating?:Function}) {
     return (
         <InteractiveCard>
             <div className="w-full h-[70%] relative rounded-t-lg">
@@ -14,12 +14,15 @@ export default function ProductCard ({hospitalName, imgSrc, score, onRating} :{h
             <div className='w-full h-[10%] p-[5%] font-serif'>
                 {hospitalName} 
             </div>
-            <Rating className='w-full m-[5%]' value={score} 
-            onClick={(e)=>e.stopPropagation()}
-            onChange={(event, newValue) => {
-                event.preventDefault()
-                onRating(hospitalName, newValue)
-              }} />
+            {
+                onRating? <Rating className='w-full m-[5%]' value={score} 
+                onClick={(e)=>e.stopPropagation()}
+                onChange={(event, newValue) => {
+                    event.preventDefault()
+                    onRating(hospitalName, newValue)
+                  }} /> : ''
+            }
+            
         </InteractiveCard>
     )
 }
