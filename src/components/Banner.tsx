@@ -22,7 +22,8 @@ export default function Banner () {
                 session? <div className='z-30 absolute top-5 right-10 font-semibold text-black text-lg' > 
                 {session.user?.name} </div> : null
             }
-            <button className='bg-white text-cyan-600 border boarder-cyan-600 font-semibold 
+            <button id='select-hospital'
+            className='bg-white text-cyan-600 border boarder-cyan-600 font-semibold 
             p-2 m-2 rounded z-30 absolute bottom-0 right-0
             hover:bg-cyan-600 hover:text-white hover:border-transparent' 
             onClick={(e)=>{e.stopPropagation(); router.push('/hospital')}}>

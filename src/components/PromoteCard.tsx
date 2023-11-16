@@ -11,7 +11,7 @@ export function PromoteCard(){
         <div className="w-[80%] shadow-lg mx-[10%] my-10 p-2 rounded-lg bg-gray-200 flex flex-row"> 
         <VideoPlayer isPlaying={playing} vdoSrc="/video/getvaccine.mp4"></VideoPlayer>
         <div className="m-5">Get Vaccine
-        <button
+        <button id="play-pause"
         className='block rounded-md bg-teal-400 px-3 py-2 text-sm font-semibold text-gray-600 shadow-sm hover:bg-teal-500 
         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
         onClick={()=>setPlaying(!playing)}> 
